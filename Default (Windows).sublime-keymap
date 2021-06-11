@@ -1,4 +1,5 @@
 [
+	{ "keys": ["f12"], "command": "" },
 	{ "keys": ["ctrl+tab"], "command": "next_view" },
 	{ "keys": ["ctrl+shift+tab"], "command": "prev_view" },
 	{ "keys": ["ctrl+,"], "command": "focus_neighboring_group" },
