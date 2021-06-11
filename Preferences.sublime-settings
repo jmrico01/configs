@@ -1,0 +1,49 @@
+{
+	"binary_file_patterns":
+	[
+		"*.jpg",
+		"*.jpeg",
+		"*.png",
+		"*.gif",
+		"*.ttf",
+		"*.tga",
+		"*.dds",
+		"*.ico",
+		"*.eot",
+		"*.pdf",
+		"*.swf",
+		"*.jar",
+		"*.zip",
+		"*.pdb",
+		"*.map",
+		"*.ipch",
+		"*.obj",
+		"*.exe",
+		"*.db"
+	],
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
+	"file_exclude_patterns":
+	[
+	],
+	"folder_exclude_patterns":
+	[
+	],
+	"font_size": 12,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"rulers":
+	[
+		100
+	],
+	"scroll_speed": 0,
+	"show_encoding": true,
+	"word_wrap": true,
+	"wrap_width": 0,
+	"caret_style": "smooth",
+	"tab_completion": true,
+	"auto_complete_commit_on_tab": true,
+	"hardware_acceleration": "opengl",
+	"theme": "Adaptive.sublime-theme",
+}
