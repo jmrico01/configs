@@ -21,7 +21,7 @@
 		"*.exe",
 		"*.db"
 	],
-	"color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
+	"color_scheme": "Monokai.sublime-color-scheme",
 	"file_exclude_patterns":
 	[
 	],
