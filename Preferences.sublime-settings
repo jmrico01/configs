@@ -21,7 +21,7 @@
 		"*.exe",
 		"*.db"
 	],
-	"color_scheme": "Monokai.sublime-color-scheme",
+	"color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
 	"file_exclude_patterns":
 	[
 	],
@@ -42,6 +42,7 @@
 	"word_wrap": true,
 	"wrap_width": 0,
 	"caret_style": "smooth",
+	"auto_complete": false,
 	"tab_completion": true,
 	"auto_complete_commit_on_tab": true,
 	"hardware_acceleration": "opengl",
