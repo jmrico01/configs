@@ -4,6 +4,8 @@
 	{ "keys": ["ctrl+shift+tab"], "command": "prev_view" },
 	{ "keys": ["ctrl+,"], "command": "focus_neighboring_group" },
 	{ "keys": ["ctrl+shift+,"], "command": "focus_neighboring_group", "args": {"forward": false} },
+	{ "keys": ["alt+,"], "command": "move_to_neighboring_group" },
+	{ "keys": ["alt+shift+,"], "command": "move_to_neighboring_group", "args": {"forward": false} },
 
 	{ "keys": ["ctrl+r"], "command": "show_at_center" },
 	{ "keys": [], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
