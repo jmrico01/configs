@@ -1,0 +1,27 @@
+{
+    "working_dir": "$folder",
+    "shell_cmd": "zig build",
+    "file_regex": "^\\s*([^:]*):(\\d+):(\\d+): ([^\\n]+)",
+    "variants": [
+        {
+            "name": "Run",
+            "shell_cmd": "zig build run",
+        },
+        {
+            "name": "Stop",
+            "shell_cmd": "zig build stop",
+        },
+        {
+            "name": "Clean",
+            "shell_cmd": "rm -rf zig-cache zig-out build",
+        },
+        {
+            "name": "Package",
+            "shell_cmd": "zig build package",
+        },
+        {
+            "name": "Test",
+            "shell_cmd": "zig build test",
+        }
+    ]
+}
