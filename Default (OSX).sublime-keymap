@@ -8,8 +8,10 @@
 
 	{ "keys": ["super+r"], "command": "show_at_center" },
 
-	{ "keys": ["super+pageup"],   "command": "scroll_lines", "args": {"amount": 10.0 } },
-	{ "keys": ["super+pagedown"], "command": "scroll_lines", "args": {"amount": -10.0 } },
+	{ "keys": ["super+up"],   "command": "scroll_lines", "args": {"amount": 10.0 } },
+	{ "keys": ["super+down"], "command": "scroll_lines", "args": {"amount": -10.0 } },
+
+	{ "keys": ["super+m"], "command": "move_to", "args": {"to": "brackets"}},
 
 	{ "keys": ["super+i"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
 	{ "keys": ["super+g"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
@@ -41,13 +43,16 @@
 	{ "keys": ["up"], "command": "find_prev", "context":
 		[{"key": "panel", "operand": "replace"}, {"key": "panel_has_focus"}]
 	},
-	{ "keys": ["enter"], "command": "replace", "context":
+	{ "keys": ["super+down"], "command": "replace_next", "context":
+		[{"key": "panel", "operand": "replace"}, {"key": "panel_has_focus"}]
+	},
+	{ "keys": ["enter"], "command": "hide_panel", "context":
 		[{"key": "panel", "operand": "replace"}, {"key": "panel_has_focus"}]
 	},
 
 	// override cmd+left cmd+right to match windows
-	{ "keys": ["command+left"], "command": "move", "args": {"by": "words", "forward": false} },
-	{ "keys": ["command+right"], "command": "move", "args": {"by": "word_ends", "forward": true} },
-	{ "keys": ["command+shift+left"], "command": "move", "args": {"by": "words", "forward": false, "extend": true} },
-	{ "keys": ["command+shift+right"], "command": "move", "args": {"by": "word_ends", "forward": true, "extend": true} },
+	{ "keys": ["super+left"], "command": "move", "args": {"by": "words", "forward": false} },
+	{ "keys": ["super+right"], "command": "move", "args": {"by": "word_ends", "forward": true} },
+	{ "keys": ["super+shift+left"], "command": "move", "args": {"by": "words", "forward": false, "extend": true} },
+	{ "keys": ["super+shift+right"], "command": "move", "args": {"by": "word_ends", "forward": true, "extend": true} },
 ]
