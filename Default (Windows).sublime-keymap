@@ -6,12 +6,18 @@
 	{ "keys": ["ctrl+shift+,"], "command": "focus_neighboring_group", "args": {"forward": false} },
 
 	{ "keys": ["ctrl+r"], "command": "show_at_center" },
+
+	{ "keys": ["ctrl+up"],   "command": "scroll_lines", "args": {"amount": 10.0 } },
+	{ "keys": ["ctrl+down"], "command": "scroll_lines", "args": {"amount": -10.0 } },
+	{ "keys": ["ctrl+m"], "command": "move_to", "args": {"to": "brackets"}},
+
 	{ "keys": [], "command": "show_overlay", "args": {"overlay": "goto", "text": "@"} },
 
 	{ "keys": ["ctrl+pageup"],   "command": "scroll_lines", "args": {"amount": 10.0 } },
 	{ "keys": ["ctrl+pagedown"], "command": "scroll_lines", "args": {"amount": -10.0 } },
 
 	{ "keys": ["ctrl+i"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+	{ "keys": ["ctrl+g"], "command": "show_overlay", "args": {"overlay": "goto", "text": ":"} },
 	{ "keys": ["ctrl+shift+d"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Line.sublime-macro"} },
 
 	{ "keys": ["alt+up"], "command": "swap_line_up" },
@@ -40,8 +46,10 @@
 	{ "keys": ["up"], "command": "find_prev", "context":
 		[{"key": "panel", "operand": "replace"}, {"key": "panel_has_focus"}]
 	},
+	{ "keys": ["ctrl+down"], "command": "replace_next", "context":
+		[{"key": "panel", "operand": "replace"}, {"key": "panel_has_focus"}]
+	},
 	{ "keys": ["enter"], "command": "hide_panel", "context":
 		[{"key": "panel", "operand": "replace"}, {"key": "panel_has_focus"}]
 	},
-	{ "keys": ["ctrl+down"], "command": "replace_next" },
 ]
