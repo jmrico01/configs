@@ -1,42 +1,31 @@
-[3]  # Version number. Do not delete.
+[5]  # Version number. Do not delete.
 
 [[workspace]]
+# These directories and files will be scanned when a workspace is opened so that search etc. works.
 
-[workspace dirs]
-# These directories will be scanned when a workspace is opened so that search etc. works.
+[ignore]
+# Files and directories matching the following wildcards will not be loaded or descended into
 # Example:
-# C:/projects/my-project
-# C:/jai
-
-[ignore dirs]
-# The workspace scanner will not descend into the dirs that match these names.
+# *.js - will ignore all files with a '.js' extension
+# tmp* - will ignore any files or directories which start with 'tmp'
+# C:/project/dirname/** - will ignore everything under `dirname`
+# C:/project/dirname/*  - will ignore all files under `dirname`, but not recursively
 .svn
 .git
 __pycache__
+.zig-cache
+*woff?
+*so.*
 
-[allow file extensions]
-# These files are explicitly allowed so that the editor doesn't waste time figuring out
-# whether it should ignore these or not (if a file is not explicitly allowed or ignored,
-# it will be read to determine if it's binary or not).
-.jai .c .cpp .h .hpp .cc .cs .txt .md .focus-* .ini .csv .log .sql .py .m .html .xml .plist .js .jsx .ts .tsx .json .yml .yaml .toml .zig .odin
+[allow]
+# Files and directories matching the wildcards in this section will be loaded, even if they are ignored in the previous section.
+# NOTE: known binary file extensions are ignored by default (*.exe, *.obj etc.). If this is not what you want, you can explicitly allow them here.
+.focus-*
 
-[ignore file extensions]
-# Files with the following extensions will not appear in the file open dialog and won't be loaded into memory.
-# It makes sense to add all known binary file extensions here.
-.exe .pdb .ttf .otf .eot .woff *woff? .dll .lib .dylib .so *so.* .a .o .pdf
-.jpg .png .gif .jpeg .ico .tif .tiff .tga .bmp .webp  # maybe someday we'll support opening images
-.mp3 .wav .ogg .wma
-.blend .blend1 .obj .fbx .dae .3ds .dat .msh2
-.mpg .mpeg .psd .codex .webm .wma
-.zip .rar .7z
-.bin .sys .iso
-.nib .exp
-.pyc .rpyc
-.DS_Store .dmg
-
+[file associations]
+*.zon : zig
 
 [[settings]]
-
 maximize_on_start:                      false
 open_on_the_biggest_monitor:            false
 cursor_as_block:                        false
@@ -47,7 +36,7 @@ disable_file_open_close_animations:     false
 double_shift_to_search_in_workspace:    false
 tab_size:                               4
 insert_spaces_when_pressing_tab:        true
-strip_trailing_whitespace_on_save:      false
+strip_trailing_whitespace_on_save:      true
 smooth_scrolling:                       false
 scroll_beyond_last_line:                true
 line_height_scale_percent:              120
@@ -55,16 +44,13 @@ max_editor_width:                       -1
 can_cancel_go_to_line:                  true
 copy_whole_line_without_selection:      false
 editor_history_size:                    1024
-line_wrap_is_on_by_default:             false
-show_line_numbers:                      false
-colored_titlebar:                       true   # Windows 11+ only
-dark_titlebar:                          false  # Windows only
+line_wrap_is_on_by_default:             true
+show_line_numbers:                      true
 hide_mouse_when_typing:                 false
 highlight_line_with_cursor:             true
-draw_indent_guides:                     false
+draw_indent_guides:                     true
 auto_surround_with_brackets_and_quotes: false
 auto_close_brackets:                    false
-prefer_system_file_dialogs:             false  # Windows only
 show_cursors_off_screen:                true
 persist_local_search_results:           false  # if true, search results will stay highlighted and you have to dismiss them using the `escape` action
 
@@ -76,49 +62,23 @@ build_panel_height_percent:             50
 save_all_file_backed_buffers_on_build:  false
 save_current_buffer_on_build:           false
 
+# Added after migration to version [5]
+window_width:                                  -1
+window_height:                                 -1
+insert_final_newline_on_save:                  false
+status_bar_position:                           bottom  # options: top, bottom
+load_most_recent_project_on_start:             false
+color_preview_popup:                           enabled  # options: enabled, minimized, disabled
 
-# This is an example configuration for build commands
+prefer_system_file_dialogs: false  # Windows only
+dark_titlebar: false  # Windows only
+colored_titlebar: true   # Windows 11+ only
 
-# [[build commands]]
-# build_working_dir:      <build working dir for all commands>
-# open_panel_on_build:    true  #  <- any settings specified here will apply to all commands unless overridden
-# close_panel_on_success: false
-# clear_build_output_before_running: false
-# error_regex:            <compiler-specific error regex>  # see examples below
-# auto_jump_to_error:     false
-
-# [Debug Build And Run]   # <- command name. Can be arbitrary
-# build_command:          jai main.jai  # should be an executable or a script
-# build_working_dir:      <build working dir for this command only>
-# timeout_in_seconds:     5             # if you don't want a timeout, don't specify it
-# run_command:            test.exe      # will be run if build succeeds
-# run_working_dir:        W:/focus      # working dir for the run command
-# key_binding:            F5
-
-# [Run]                   # <- You could have commands that don't build anything and just run something
-# run_command:            test
-# run_working_dir:        /home/user/test
-# key_binding:            Ctrl-F5
-
-# [Release]
-# build_command:          jai first.jai - release
-# key_binding:            F9
-
-
-# Example error regexes:
-# For jai:  ^(?P<file>.*):(?P<line>\d+),(?P<col>\d+): (?P<type>Error|Warning|Info|...):* (?P<msg>.*)|^(?P<msg1>.*error LNK.*)
-# For msvc: ^(?P<file>.*)\((?P<line>\d+),(?P<col>\d+)\): (?P<type>error|warning) (?P<msg>.*)$
-# ... let us know what regex works for you and we'll add it here
-
-# NOTE:
-# You can use the following variables in build_command or run_command:
-# %FILE%      - full path to currenly active file
-# %FILE_DIR%  - the directory of the currently active file
-# %FILE_NAME% - current file name, with extension
-# %FILE_NAME_NO_EXTENSION% - current file name, without extension
-# %BUILD_WORKING_DIR% - working dir of the build command
-# %RUN_WORKING_DIR%   - working dir of the run command
-
+[[build commands]]
+open_panel_on_build: true
+close_panel_on_success: false
+clear_build_output_before_running: true
+auto_jump_to_error: true
 
 [[keymap]]
 
@@ -388,7 +348,7 @@ code_type:                              82AAA3FF
 code_function:                          D0C5A9FF
 code_punctuation:                       BFC9DBFF
 code_operation:                         E0AD82FF
-code_string:                            D4BC7DFF
+code_string_literal:                    D4BC7DFF
 code_value:                             D699B5FF
 code_highlight:                         D89B75FF
 code_error:                             FF0000FF
@@ -400,3 +360,28 @@ build_panel_scrollbar:                  33CCCC19
 build_panel_scrollbar_hover:            33CCCC4C
 build_panel_scrollbar_background:       10191F4C
 build_panel_title_bar:                  1C303AFF
+
+# Added after migration to version [5]
+code_invalid:                           FF0000FF
+code_multiline_string:                  D4BC7DFF
+code_raw_string:                        D4BC7DFF
+code_char_literal:                      D4BC7DFF
+code_identifier:                        BFC9DBFF
+code_note:                              E0AD82FF
+code_number:                            D699B5FF
+code_multiline_comment:                 87919DFF
+code_modifier:                          E67D74FF
+code_attribute:                         E67D74FF
+code_enum_variant:                      BFC9DBFF
+code_macro:                             E0AD82FF
+code_builtin_variable:                  D699B5FF
+code_builtin_function:                  E0AD82FF
+code_builtin_exception:                 E0AD82FF
+code_directive:                         E67D74FF
+code_directive_modifier:                E67D74FF
+code_header:                            E67D74FF
+code_header2:                           E0AD82FF
+code_header3:                           E0AD82FF
+code_header4:                           E0AD82FF
+code_header5:                           E0AD82FF
+code_header6:                           E0AD82FF
