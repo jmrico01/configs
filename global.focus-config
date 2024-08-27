@@ -230,7 +230,7 @@ Ctrl-X                      cut
 Ctrl-V                      paste
 
 Ctrl-Z                      undo
-Ctrl-Shift-Z                redo
+Ctrl-Y                      redo
 
 Ctrl-D                      select_word
 Ctrl-A                      select_all
